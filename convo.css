@@ -1,0 +1,141 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+.sexyLine{
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #F0F8FF, black, #F0F8FF);
+  border: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#convoBody{
+  position: absolute;
+  width: 25%;
+  height: 93%;
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-size: contain;*/
+  background-color: #F0F8FF;
+  top: 7%;
+  right: 0px;
+  z-index: 100;
+}
+
+#visibilityBtn{
+  position: absolute;
+  top: 60px;
+  right: 25%;
+  margin: 15px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.7);
+  cursor:pointer;
+  z-index: 100;
+  border: 1px solid grey;
+}
+#visibilityBtn:focus{
+  outline: none;
+}
+
+.remindersText{
+  display: inline-block;
+}
+#remindersCon{
+}
+
+#remindTextInput{
+  width: 270px;
+  display: inline-block;
+  background-color: #f7d4fa;
+  border: 1px solid #e271eb;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 2px;
+}
+#remindTextInput:focus{
+  outline: none;
+  box-shadow: 0px 0px 1px #0066ff;
+}
+#remindTextInput:focus::placeholder{
+  color: #4a4a4a;
+}
+#remindHourInput{
+  width: 20px;
+  display: inline-block;
+  background-color: #f7d4fa;
+  border: 1px solid #e271eb;
+  border-radius: 5px;
+  padding: 2px;
+}
+#remindHourInput:focus{
+  outline: none;
+  box-shadow: 0px 0px 1px #0066ff;
+}
+#remindDayInput{
+  width: 20px;
+  display: inline-block;
+  background-color: #f7d4fa;
+  border: 1px solid #e271eb;
+  border-radius: 5px;
+  padding: 2px;
+}
+#remindDayInput:focus{
+  outline: none;
+  box-shadow: 0px 0px 1px #0066ff;
+}
+#remindersTitle{
+  margin: 10px;
+}
+.delReminderBtn{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  float: right;
+  color: #f78679;
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+.delReminderBtn:hover{
+  color: #ff5340;
+}
+.delReminderBtn:focus{
+  outline: none;
+}
+.reminderDiv{
+  width: 90%;
+  background-color: #f2e0ff;
+  border: 1px solid #eaccff;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
+}
+.reminderName{
+  display: inline-block;
+  margin: 0px;
+}
+.reminderDate{
+  display: inline-block;
+  position: relative;
+  margin: 0px;
+  float: right;
+}
+
+.pasteBtn{
+  position: relative;
+  background-color: bisque;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

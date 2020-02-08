@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Messenger Assistant",
+  "version": "0.1",
+  "content_scripts": [
+  {
+    "matches": [
+      "https://www.messenger.com/*"
+    ],
+    "js": [ "dependencies/moment.min.js", "dependencies/jquery-3.3.1.min.js", "dependencies/chartjs-2.8.0.js", "parse.js", "gen_charts.js", "reminders.js", "convo.js"],
+    "css": ["convo.css"]
+  }],
+  "browser_action": {
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": [
+    "convo.html",
+    "dependencies/model.json",
+    "photos/background.png"
+  ],
+  "permissions":[
+    "storage",
+    "http://localhost:5000/"
+  ]
+}
