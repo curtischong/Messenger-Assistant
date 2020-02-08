@@ -7,12 +7,12 @@
 
 # Features
  - Reminders
- - Copy and paste emojis at will ¯\_(ツ)_/¯
+ - Copy and paste emojis at will ¯\\_(ツ)_/¯
  - A graph that displays the number of characters sent over time
 
 # Installation
 1) Run `git clone git@github.com:curtischong/Messenger-Assistant.git` in your terminal
-2) Change `const YOUR_NAME = "Curtis";` in [convo.js](convo.js) to your name. (Please make it capitalized)
+2) Change `const YOUR_NAME = "Curtis";` in [convo.js](convo.js) to your name. (Please capitalize your name)
 3) Load the unpacked extension into Chrome https://github.com/web-scrobbler/web-scrobbler/wiki/Install-an-unpacked-extension
 4) go on messenger.com and the side panel should appear! (You may need to reload messenger.com)
 
