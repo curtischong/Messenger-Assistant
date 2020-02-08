@@ -1,17 +1,14 @@
 # Messenger-Assistant
 
 <p align="center">
-  <img src="https://chongcurtis.com/file_hosting/messenger_assistant_emojis.png" alt="The engine in action!"/>
-</p>
-
-<p align="center">
-  <img src="https://chongcurtis.com/file_hosting/messenger_assistant_reminders.png" alt="The engine in action!"/>
+  <img style="width: 400px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_emojis.png" alt="The engine in action!" width="400"/>
+  <img style="width: 400px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_reminders2.png" alt="The engine in action!" width="400"/>
 </p>
 
 # Features
- - Time elapsed since you started talking
- - Graphs showing you:
-  - The number of characters sent over time
+ - Reminders
+ - Copy and paste emojis at will ¯\_(ツ)_/¯
+ - A graph that displays the number of characters sent over time
 
 # Installation
 1) Run `git clone git@github.com:curtischong/Messenger-Assistant.git` in your terminal
