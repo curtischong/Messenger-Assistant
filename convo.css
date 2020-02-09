@@ -132,10 +132,54 @@ input::-webkit-inner-spin-button {
   float: right;
 }
 
+#pasteBtns {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pasteBtnSection:not(:first-of-type) p {
+    margin: 10px 0px 1px 0px;
+    font-weight: 500;
+}
+
+.pasteBtnSection:first-of-type p {
+    margin: 0px 0px 1px 0px;
+    font-weight: 500;
+}
+
+.angryBtns .pasteBtn {
+    background-color: #ffbcb5;
+    border: solid 1px red;
+}
+
+.cuteBtns .pasteBtn {
+    background-color: #f7d4fa;
+    border: 1px solid #e271eb;
+}
+
+.musicBtns .pasteBtn {
+    background-color: #dedefa;
+    border: solid 1px #8e8eed;
+}
+
+.ffBtns .pasteBtn {
+    background-color: #bce8cf;
+    border: solid 1px mediumseagreen;
+}
+
+
 .pasteBtn{
   position: relative;
   background-color: bisque;
-  margin: 10px;
-  border-radius: 5px;
+  margin: 2px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: 0.1s;
+  border: solid 1px #e6a265;
+}
+
+.pasteBtn:hover {
+    transform: translateY(-2px);
+    transition: 0.1s;
+    box-shadow: 0px 3px 3px -1px rgba(145, 100, 60, 0.3);
 }
