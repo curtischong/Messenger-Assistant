@@ -135,6 +135,7 @@ input::-webkit-inner-spin-button {
 #pasteBtns {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 10px;
 }
 
 .pasteBtnSection:not(:first-of-type) p {
