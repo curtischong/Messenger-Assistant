@@ -12,13 +12,8 @@
   }],
   "browser_action": {
   },
-  "background": {
-    "scripts": ["background.js"]
-  },
   "web_accessible_resources": [
-    "convo.html",
-    "dependencies/model.json",
-    "photos/background.png"
+    "convo.html"
   ],
   "permissions":[
     "storage",

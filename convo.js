@@ -1,22 +1,10 @@
 const YOUR_NAME = "Curtis";
 
-let getLastFiveMsgs = (convo) => {
-  let lastFiveMsgs = []
-  let idx = Math.max(convo.length - 5, 0);
-  for(;idx < convo.length; idx++){
-    lastFiveMsgs.push(convo[idx].msg);
-  }
-  return lastFiveMsgs;
-}
-
 let loadSidebar = (charCntChart) => {
   // These relevant Msgs are from the last conversation
   let relevantMsgs = getRelevantMsgs();
   let convo = parseConvo(relevantMsgs);
-  console.log(convo);
-
   generateCharCntChart(charCntChart, convo);
-  let lastFiveMsgs = getLastFiveMsgs(convo);
 }
 
 let setShowBtnListener = () => {
@@ -34,6 +22,20 @@ let setShowBtnListener = () => {
   });
 }
 
+let observeMessageChanges = (messageObserver, config, retries) => {
+  if (retries <= 0){
+    return
+  }
+  try {
+    messageObserver.observe($("#js_1")[0], config);
+  }
+  catch(error) {
+    console.log("Cannot attach observer to detect new messages with error:")
+    console.error(error);
+    setTimeout(observeMessageChanges(messageObserver, retries - 1),1000);
+  }
+}
+
 // run this fucntion everytime you enter a new chats
 let main = (initVars) => {
   let charCntChart = initVars.charCntChart;
@@ -41,24 +43,9 @@ let main = (initVars) => {
 
   loadSidebar(charCntChart);
   const config = { attributes: false, childList: true, subtree: true};
-  messageObserver.observe($("#js_1")[0], config);
+  observeMessageChanges(messageObserver, config, 5)
 }
 
-
-/* scratchpad
-if a new dom change OR someone has messaged in the last 15 min
-then the conversation has gone on for at least from now
-til the last timestamp
-- good measure bc a conversation relies on 2 ppl.
-- you don't have to account for the case where they start speaking
-- and you haven't said anything yet.
-- conversations duration doesn't work that way
-- this if statement is good because the correct conversation time is still
-- displayed even if you navigate away
-
-//TODO: future
-- If someone says bye or cya or night etc. then remember to stop the timer
-*/
 let initMessageObserver = (charCntChart) => {
   let observeNewChats = (mutationsList, observer) => {
     if(mutationsList.length == 1 && $(mutationsList[0].target).attr("class") == "_41ud"){
@@ -70,7 +57,6 @@ let initMessageObserver = (charCntChart) => {
       console.log(mutationsList);
     }
   }
-
   return new MutationObserver(observeNewChats);
 }
 let initPageObserver = (initVars) => {
@@ -91,19 +77,14 @@ let initPageObserver = (initVars) => {
 }
 
 let copyStringToClipboard = (str) => {
-  // Create new element
+  // https://techoverflow.net/2018/03/30/copying-strings-to-the-clipboard-using-pure-javascript/
   var el = document.createElement('textarea');
-  // Set value (string to be copied)
   el.value = str;
-  // Set non-editable to avoid focus and move outside of view
   el.setAttribute('readonly', '');
   el.style = {position: 'absolute', left: '-9999px'};
   document.body.appendChild(el);
-  // Select text inside element
   el.select();
-  // Copy text to clipboard
   document.execCommand('copy');
-  // Remove temporary element
   document.body.removeChild(el);
 };
 
@@ -122,13 +103,8 @@ let initPasteBin = () => {
   });
 }
 
-
 // run this function everytime you enter messenger.com
 let init = () => {
-  //$("remindersCon").load("extensions/reminders/reminders.html");
-
-  console.log(chrome.extension.getURL("/background.jpg"));
-  //$('#convoBody').css("background-image", "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url(" + chrome.extension.getURL("photos/background.png") + ")");
   setShowBtnListener();
   var charCntChartCtx = document.getElementById('charCntChart').getContext('2d');
   let charCntChart = getCharCntChart(charCntChartCtx);
@@ -161,6 +137,5 @@ $(document).ready( () => {
           }
       }, 100);
     });
-
   });
 });

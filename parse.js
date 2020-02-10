@@ -63,9 +63,9 @@ let parseConvo = (relevantMsgs) =>{
         return
       }
 
-      // this "if" needs to be here first bc the read receipt img shouldn't trigger the "find img block"
       // finds texts
       if($(texts).find("span._3oh-").length !== 0){
+        // this "if" needs to be here first bc the read receipt img shouldn't trigger the "find img block"
         // note: there could be a link in there
         // note: if there is a visual of the link destination it should be within the same .clearfix block as the text
         let words = $(texts).find("span._3oh-").text()

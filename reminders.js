@@ -8,7 +8,7 @@ let deleteReminders = () => {
 };
 
 function toTimeZone(time) {
-  return moment.utc(time).local().format()//.toISOString()
+  return moment.utc(time).local().format()
 }
 
 let secondsToTime = (seconds) => {
@@ -94,9 +94,8 @@ let getReminderDiv = (isRed, timeStr, text, reminderTime) => {
 let populateReminders = () => {
   getReminders((items) => {
     $("#messageReminders").empty();
-    console.log(items);
     if(items === undefined || items["reminders"] === undefined){
-      console.log("error reminders failed");
+      console.log("no reminders detected");
       return;
     }
     items["reminders"].sort(function(a, b) {

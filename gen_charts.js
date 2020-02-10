@@ -86,37 +86,3 @@ let generateCharCntChart = (chart, convo) => {
   chart.data.datasets = charCntDatasets;
   chart.update();
 }
-
-// Response Chart
-
-let generateResponseChart = (x,y) => {
-  var ctx = document.getElementById('responseChart').getContext('2d');
-  var chart = new Chart(ctx, {
-      // The type of chart we want to create
-      type: 'scatter',
-
-      // The data for our dataset
-      data: {
-          datasets: [{
-            label: "y=x",
-            borderColor: "#fff",
-            borderWidth: 1,
-            pointBackgroundColor: ['#000'],
-            pointRadius: 1,
-            fill: false,
-            showLine: true,
-            data: [{
-              x: 0.0,
-              y: 0.0
-            },{
-              x: 0.0,
-              y: 0.0,
-            }]
-          }]
-      },
-      // Configuration options go here
-      options: {}
-  });
-  chart = null;
-}
-
