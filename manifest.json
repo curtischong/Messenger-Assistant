@@ -10,11 +10,13 @@
             "dependencies/jquery-3.3.1.min.js",
             "dependencies/chartjs-2.8.0.js",
             "parse.js",
-            "gen_charts.js",
+            "gen-charts.js",
             "convo.js",
+            "extensions/character-count/script.js",
             "extensions/reminders/script.js",
             "extensions/emojis/script.js"],
     "css": ["convo.css",
+            "extensions/character-count/style.css",
             "extensions/reminders/style.css",
             "extensions/emojis/style.css"]
   }],
@@ -25,6 +27,7 @@
   },
   "web_accessible_resources": [
     "convo.html",
+    "extensions/character-count/index.html",
     "extensions/reminders/index.html",
     "extensions/emojis/index.html"
   ],

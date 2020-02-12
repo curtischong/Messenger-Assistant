@@ -20,3 +20,8 @@
  - If you update the manifest.json you have to manually turn off/on the extension in the extensions page
  - This repo uses ES6 so if you are traversing DOM elements in jquery use `.each((idx, element) => {})';` when looping through children elements
  - If you add a new js file. you have to delete the extension. Then load the unpacked version again for it to recognize the new js file
+
+# Design Decisions
+- Each Messenger-Assistant Extension should have an index, script, and syle.css under it's directory name in the extensions directory
+- Remember to put `<extensionName>Init()` in the extensionsInit() function in [convo.js](convo.js)
+- The dependencies directory is on the outside so multiple extensions can reuse the same dependencies
