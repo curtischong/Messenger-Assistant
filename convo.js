@@ -78,7 +78,7 @@ let initPageObserver = (initVars) => {
 
 
 let initReloadBtn = (charCntChart) => {
-  $("#reload").on("click", () => {
+  $("#reloadBtn").on("click", () => {
     console.log("reload");
     loadSidebar(charCntChart);
   })
@@ -98,7 +98,7 @@ let init = () => {
 
   initReloadBtn(charCntChart);
   initPageObserver(initVars);
-  initPasteBin();
+  initEmojis();
   return initVars;
 }
 

@@ -1,12 +1,11 @@
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-
-.sexyLine{
+.sexyLine {
   position: relative;
   width: 100%;
   height: 1px;
@@ -16,7 +15,7 @@ input::-webkit-inner-spin-button {
   margin-bottom: 5px;
 }
 
-#convoBody{
+#convoBody {
   position: absolute;
   width: 25%;
   height: 93%;
@@ -28,18 +27,31 @@ input::-webkit-inner-spin-button {
   z-index: 100;
 }
 
-#visibilityBtn{
+#visibilityBtn {
   position: absolute;
   top: 60px;
-  right: 25%;
-  margin: 15px;
+  right: 10px;
+  margin: 10px;
   border-radius: 30px;
   background: rgba(0, 0, 0, 0.1);
-  color: rgba(0,0,0,0.7);
-  cursor:pointer;
-  z-index: 100;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  z-index: 105;
   border: 1px solid grey;
 }
-#visibilityBtn:focus{
+
+#visibilityBtn:focus {
   outline: none;
+}
+
+#reloadBtn {
+  border: 1px solid grey;
+  background-color: #f1d6ff;
+  border-radius: 10px;
+  border: 1px solid #e0a3ff;
+  padding: 1px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 1px;
+  width: 50px;
 }
