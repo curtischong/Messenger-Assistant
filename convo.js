@@ -76,31 +76,12 @@ let initPageObserver = (initVars) => {
   pageObserver.observe($("._4sp8")[0], config)
 }
 
-let copyStringToClipboard = (str) => {
-  // https://techoverflow.net/2018/03/30/copying-strings-to-the-clipboard-using-pure-javascript/
-  var el = document.createElement('textarea');
-  el.value = str;
-  el.setAttribute('readonly', '');
-  el.style = {position: 'absolute', left: '-9999px'};
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-};
-
 
 let initReloadBtn = (charCntChart) => {
   $("#reload").on("click", () => {
     console.log("reload");
     loadSidebar(charCntChart);
   })
-}
-
-let initPasteBin = () => {
-  $(".pasteBtn").on("click", (e)=>{
-    let text = $(e.target).html();
-    copyStringToClipboard(text);
-  });
 }
 
 // run this function everytime you enter messenger.com
@@ -121,9 +102,22 @@ let init = () => {
   return initVars;
 }
 
+let includeHtml = () => {
+  $(function(){
+    var includes = $('[data-include]');
+    jQuery.each(includes, function(){
+      var baseDir = "chrome-extension://kmghfconmpkjbigpjnahcfbjkgemaggf/"
+      var htmlFile = baseDir + 'extensions/' + $(this).data('include') + '/index.html';
+      //var js = baseDir + 'extensions/' + $(this).data('include') + '/index.html';
+      $(this).load(htmlFile);
+    });
+  });
+}
+
 $(document).ready( () => {
   $.get(chrome.extension.getURL('convo.html'), (data) => {
     $(data).appendTo('body');
+    includeHtml();
     initReminders();
 
     $(window).on("load", () => {
