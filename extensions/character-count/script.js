@@ -33,8 +33,12 @@ let getCharCntChart = (ctx) => {
           times.push(msg.timeSent);
         }
       }
-    });
-    return times;
+    })
+    let formattedTimes = [];
+    times.forEach((time) => {
+      formattedTimes.push(time.format("h:mma"))
+    })
+    return formattedTimes;
   }
 
   let getPeopleCharCnts = (convo) => {

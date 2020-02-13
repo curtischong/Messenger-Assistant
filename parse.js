@@ -21,14 +21,24 @@ let getRelevantMsgs = () => {
   return relevantMsgs;
 }
 
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 let findTimeSent = (element) => {
   let time = $(element).find(`div[data-tooltip-content]`).first().attr("data-tooltip-content");
   let segments = time.split(" ");
-  let lastSegment = segments[segments.length - 1];
-  if(lastSegment == "AM" || lastSegment == "PM"){
-    return segments[segments.length - 2] + lastSegment.toLowerCase();
+  switch(segments.length) {
+    case 2:
+      let lastSegment = segments[segments.length - 1];
+      if(lastSegment == "AM" || lastSegment == "PM"){ // 12:43 AM
+        return moment(time, "h:mm A")
+      }
+      if(daysOfWeek.indexOf(segments[0]) > -1){ // Monday 6:20pm
+        return moment(time, "dddd h:mma")
+      }
+      break;
+    case 6: // January 29, 2020 at 10:58 PM
+      return moment(time, "MMMM DD, YYYY at h:mm A")
   }
-  return lastSegment
+  console.log("ERROR: Invalid time: " + time);
 }
 
 let parseConvo = (relevantMsgs) =>{
@@ -107,5 +117,6 @@ let parseConvo = (relevantMsgs) =>{
       }
     })
   });
+  console.log(convo)
   return convo;
 };
