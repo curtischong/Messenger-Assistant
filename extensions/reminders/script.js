@@ -110,7 +110,6 @@ let populateReminders = () => {
       let reminderIsRed = false;
       let timeStr = "";
       let dateDiff = (currentDate.getTime() - reminderTime)/1000;
-      console.log(dateDiff);
       if(dateDiff > 0){ // the reminder needs to be red
         reminderIsRed = true;
         timeStr = secondsToTime(dateDiff);
@@ -143,7 +142,7 @@ let checkAddReminder = (key) => {
 };
 
 let initReminders = () => {
-  console.log("init reminders.js")
+  console.log("Init Reminders")
   $("#remindTextInput").keydown(function (key) {
       checkAddReminder(key);
   });
