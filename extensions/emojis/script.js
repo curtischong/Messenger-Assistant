@@ -11,7 +11,7 @@ let copyStringToClipboard = (str) => {
 };
 
 let initEmojis = () => {
-  console.log("init emojis")
+  console.log("Init Emojis")
   $(".pasteBtn").on("click", (e)=>{
     let text = $(e.target).html();
     copyStringToClipboard(text);

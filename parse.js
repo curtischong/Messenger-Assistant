@@ -1,6 +1,7 @@
 const DETAILED_DEBUG = false;
 
 let getRelevantMsgs = () => {
+  console.log("Getting relevant messages")
   let relevantMsgs = [];
   $("#js_1").children().each((_, msg) => {
     //_497p
@@ -39,6 +40,7 @@ let parseConvo = (relevantMsgs) =>{
     if(person === undefined){
       replyStr = msg.find("i").first().parent().text();
       person = replyStr.split("replied to")[0].trim();
+      console.log("person")
       console.log(person)
       if(person === "You"){
         person = YOUR_NAME;
@@ -62,6 +64,7 @@ let parseConvo = (relevantMsgs) =>{
         console.log(error);
         return
       }
+      //TODO: find some way to parse for the time sent
 
       // finds texts
       if($(texts).find("span._3oh-").length !== 0){
