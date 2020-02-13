@@ -16,11 +16,6 @@
 3) Load the unpacked extension into Chrome https://github.com/web-scrobbler/web-scrobbler/wiki/Install-an-unpacked-extension.
 4) go on messenger.com and the side panel should appear! (You may need to reload messenger.com).
 
-# Dev Notes
- - If you update the manifest.json you have to manually turn off/on the extension in the extensions page
- - This repo uses ES6 so if you are traversing DOM elements in jquery use `.each((idx, element) => {})';` when looping through children elements.
- - If you add a new js file. you have to delete the extension. Then load the unpacked version again for it to recognize the new js file.
-
 # Design Decisions
 - Each Messenger-Assistant Extension should have an index, script, and syle.css under it's directory name in the extensions directory.
 - The dependencies directory is on the outside so multiple extensions can reuse the same dependencies.
@@ -31,3 +26,8 @@
 2) in [main.html](main.html) add `<div data-include="<your_extension_name>"></div>` in the `<div id="extensionsCon">...</div>` section.
 3) Put `<extensionName>Init()` in the `initOnPageLoad()` function in [extensions.js](extensions.js) to initialize your extension. Your init function can return variables that will be passed on at every triggered event in [extensions.js](extensions.js). Simply put these variables in `initVars` if you need to reference them later.
 4) Put functions that you want to be called for each event in [extensions.js](extensions.js). The current supported events are: `initOnPageLoad()`, `initOnChatLoad()`, `onRefreshBtnPressed()`, and `onChatChange()`.
+
+# Dev Notes
+ - If you update the [manifest.json](manifest.json) you have to manually turn off/on the extension in the extensions page ([Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid?hl=en) won't work).
+ - This repo uses ES6 so if you are traversing DOM elements in jquery use `.each((idx, element) => {})';` when looping through children elements.
+ - For Chrome to regoznie new files you add you have to delete Messenger Assistant and reload the unpacked version of Messenger Assistant.
