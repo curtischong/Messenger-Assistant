@@ -1,10 +1,11 @@
+const myHeaders = new Headers({
+  'Content-Type': 'application/json; charset=utf-8',
+});
+
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+  function(request, sender, callback) {
     switch(request.contentScriptQuery){
       case "httpPostRequest":
-        const myHeaders = new Headers({
-          'Content-Type': 'application/json; charset=utf-8',
-        });
         fetch(request.url, {
           method: "POST",
           headers: myHeaders,
@@ -12,7 +13,7 @@ chrome.runtime.onMessage.addListener(
         })
         .then((response) => {
           response.text().then((text) => {
-            request.callback(JSON.parse(text))
+            callback(JSON.parse(text))
           })
         })
         .catch((error) => {
@@ -21,9 +22,6 @@ chrome.runtime.onMessage.addListener(
         })
         break
     case "httpGetRequest":
-      const myHeaders = new Headers({
-        'Content-Type': 'application/json; charset=utf-8',
-      });
       fetch(request.url, {
         method: "GET",
         headers: myHeaders,
@@ -31,7 +29,7 @@ chrome.runtime.onMessage.addListener(
       })
       .then((response) => {
         response.text().then((text) => {
-          request.callback(JSON.parse(text))
+          callback(JSON.parse(text))
         })
       })
       .catch((error) => {
