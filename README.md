@@ -26,6 +26,7 @@
 2) in [main.html](main.html) add `<div data-include="<your_extension_name>"></div>` in the `<div id="extensionsCon">...</div>` section.
 3) Put `<extensionName>Init()` in the `initOnPageLoad()` function in [extensions.js](extensions.js) to initialize your extension. Your init function can return variables that will be passed on at every triggered event in [extensions.js](extensions.js). Simply put these variables in `initVars` if you need to reference them later.
 4) Put functions that you want to be called for each event in [extensions.js](extensions.js). The current supported events are: `initOnPageLoad()`, `initOnChatLoad()`, `onRefreshBtnPressed()`, and `onChatChange()`.
+5) If your extension needs to make an external network call go into [manifest.json](manifest.json) and change the website in the `content_security_policy` section to the url of your website.
 
 # Dev Notes
  - If you update the [manifest.json](manifest.json) you have to manually turn off/on the extension in the extensions page ([Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid?hl=en) won't work).
