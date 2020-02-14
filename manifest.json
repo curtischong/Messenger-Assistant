@@ -9,6 +9,7 @@
     "js": [ "dependencies/moment.min.js",
             "dependencies/jquery-3.3.1.min.js",
             "dependencies/chartjs-2.8.0.js",
+            "dev-network.js",
             "parse.js",
             "main.js",
             "extensions.js",
@@ -34,5 +35,6 @@
   "permissions":[
     "storage",
     "http://localhost:5000/"
-  ]
+  ],
+  "content_security_policy":  "default-src 'self' https://yourwebsite.com/"
 }
