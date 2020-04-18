@@ -115,8 +115,6 @@ $(document).ready( () => {
   $.get(chrome.extension.getURL('main.html'), (data) => {
     $(data).appendTo('body');
     loadHtmlForEachExtension();
-
-    $(window).on("load", () => {
       let i = setInterval(() => {
           if ($('._41ud').length) {
             clearInterval(i);
@@ -126,6 +124,5 @@ $(document).ready( () => {
             initOnChatLoad(initVars, getConvo());
           }
       }, 100);
-    });
   });
 });

@@ -1,4 +1,5 @@
-// Character Count Chart
+const TIME_FORMAT = "h:mma"
+
 // TODO: add the axis titles for this chart
 let getCharCntChart = (ctx) => {
   return new Chart(ctx, {
@@ -24,21 +25,23 @@ let getCharCntChart = (ctx) => {
   }
 
   let getConvoTimes = (convo) => {
-    let times = [];
+    let formattedTimes = [];
     convo.forEach((msg) => {
       if(msg.type === "text"){
-        if(times.length == 0){
-          times.push(msg.timeSent);
-        }else if(times[times.length - 1] != msg.timeSent){
-          times.push(msg.timeSent);
-        }
+        formattedTimes.push(msg.timeSent.format(TIME_FORMAT))
       }
     })
-    let formattedTimes = [];
-    times.forEach((time) => {
-      formattedTimes.push(time.format("h:mma"))
+
+    let times = [];
+    formattedTimes.forEach((time) => {
+      if(times.length == 0){
+        times.push(time);
+      }else if(times[times.length - 1] != time){
+        times.push(time);
+      }
     })
-    return formattedTimes;
+
+    return times;
   }
 
   let getPeopleCharCnts = (convo) => {
@@ -48,7 +51,7 @@ let getCharCntChart = (ctx) => {
         return;
       }
       let msgPoint = {
-          x: msg.timeSent,
+          x: msg.timeSent.format(TIME_FORMAT),
           y: msg.msg.length,
       };
       if(!(msg.person in personMsgs)){
@@ -62,15 +65,16 @@ let getCharCntChart = (ctx) => {
 
   let getCharCntDatasets = (peopleCharCnts) => {
     let datasets = []
-    for(let key in peopleCharCnts) {
-      let val = peopleCharCnts[key];
+    for(let name in peopleCharCnts) {
+      let dataPoints = peopleCharCnts[name];
+      // TODO(Curtis): Stick this into a utils package.
       let color = "#"+((1<<24)*Math.random()|0).toString(16);
-      if(key == YOUR_NAME){
-        color = 'rgb(255, 99, 132)';
+      if(name == YOUR_NAME){
+        color = YOUR_LINE_COLOUR;
       }
       datasets.push({
-        label: key,
-        data: val,
+        label: name,
+        data: dataPoints,
         backgroundColor: color,
         borderColor: color,
         fill: false,
@@ -81,17 +85,21 @@ let getCharCntChart = (ctx) => {
     return datasets;
   }
 
-  let generateCharCntChart = (chart, convo) => {
+  let characterCountGenerateChart = (initVars, convo) => {
+    let chart = initVars.characterCount
     let peopleCharCnts = getPeopleCharCnts(convo);
     let convoTimes = getConvoTimes(convo);
     let charCntDatasets = getCharCntDatasets(peopleCharCnts);
     chart.data.labels = convoTimes;
     chart.data.datasets = charCntDatasets;
+    console.log(convoTimes);
+    console.log(charCntDatasets)
     chart.update();
   }
 
   let characterCountInit = () => {
     console.log("Init Character Count")
+    // TODO(Curtis): Known bug - this script runs before the chart canvas is created -> throws error here.
     let charCntChartCtx = document.getElementById('charCntChart').getContext('2d');
     return getCharCntChart(charCntChartCtx);
   }

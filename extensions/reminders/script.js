@@ -57,7 +57,7 @@ let addReminders = (text, hour, day) => {
       reminderTime: reminderTime.getTime()
     });
     console.log(items);
-    chrome.storage.sync.set({ "reminders": items },populateReminders);
+    chrome.storage.sync.set({ "reminders": items },remindersPopulate);
   });
 };
 
@@ -74,7 +74,7 @@ let deleteReminder = (reminderTime) => {
     let newItems = {
       "reminders": reminders
     };
-    chrome.storage.sync.set({ "reminders": newItems },populateReminders);
+    chrome.storage.sync.set({ "reminders": newItems },remindersPopulate);
   });
 }
 
@@ -91,7 +91,7 @@ let getReminderDiv = (isRed, timeStr, text, reminderTime) => {
 }
 
 
-let populateReminders = () => {
+let remindersPopulate = () => {
   getReminders((items) => {
     $("#messageReminders").empty();
     if(items === undefined || items["reminders"] === undefined){
@@ -155,5 +155,5 @@ let remindersInit = () => {
   $("#deleteRemindersBtn").on("click", function(){
     deleteReminders();
   });
-  populateReminders();
+  remindersPopulate();
 };

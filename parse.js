@@ -117,6 +117,7 @@ let parseConvo = (relevantMsgs) =>{
       }
     })
   });
-  console.log(convo)
+  console.log("Parsed conversation:");
+  console.log(convo);
   return convo;
 };
