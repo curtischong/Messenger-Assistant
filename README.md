@@ -1,8 +1,11 @@
 # Messenger-Assistant
 
 <p align="center">
-  <img style="width: 400px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_emojis.png" alt="The engine in action!" width="400"/>
-  <img style="width: 400px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_reminders2.png" alt="The engine in action!" width="400"/>
+  <img style="width: 800px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_position.png" alt="The position of the extension on Messenger.com" width="800"/>
+</p>
+<p align="center">
+  <img style="width: 400px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_emojis2.png" alt="Messenger Assistant emojis" width="400"/>
+  <img style="width: 400px;" src="https://chongcurtis.com/file_hosting/messenger_assistant_reminders2.png" alt="Messenger Assistant reminders" width="400"/>
 </p>
 
 # Features
@@ -12,7 +15,7 @@
 
 # Installation
 1) Run `git clone git@github.com:curtischong/Messenger-Assistant.git` in your terminal.
-2) Change `const YOUR_NAME = "Curtis";` in [main.js](main.js) to your name. (Please capitalize your name).
+2) Change `const YOUR_NAME = "Curtis";` in [settings.js](settings.js) to your name. (Please capitalize your name).
 3) Load the unpacked extension into Chrome https://github.com/web-scrobbler/web-scrobbler/wiki/Install-an-unpacked-extension.
 4) go on messenger.com and the side panel should appear! (You may need to reload messenger.com).
 
