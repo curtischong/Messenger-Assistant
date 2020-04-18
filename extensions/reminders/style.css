@@ -2,8 +2,6 @@
 .remindersText{
   display: inline-block;
 }
-#remindersCon{
-}
 
 #remindTextInput{
   width: 270px;
@@ -85,5 +83,4 @@
   display: inline-block;
   position: relative;
   margin: 0px;
-  float: right;
 }

@@ -17,15 +17,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 #convoBody {
   position: absolute;
-  width: 25%;
-  height: 93%;
+  height: calc(100% - 60px);
   /*background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   background-size: contain;*/
+  width: 25%;
+  max-width: 420px;
   background-color: #F0F8FF;
-  top: 7%;
+  top: 60px;
   right: 0px;
   z-index: 1;
 }
+
 #extensionsCon{
   z-index: 1;
 }
