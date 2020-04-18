@@ -20,10 +20,10 @@
 4) go on messenger.com and the side panel should appear! (You may need to reload messenger.com).
 
 # Design Decisions
-- Each Messenger-Assistant Extension should have an index, script, and syle.css under it's directory name in the extensions directory.
+- Each Messenger-Assistant Extension should have an index, script, and syle.css under its directory name in the extensions directory.
 - The dependencies directory is on the outside so multiple extensions can reuse the same dependencies.
 
-# How to add a Messenger Assistant Extension
+# How Create a Messenger Assistant Extension
 1) Put the html, css, and js files for your extension under the `extensions` directory.
 1) In the [manifest.json](manifest.json) add the path to your js and css files under `content_scripts`. Then add the path to your HTML file under `web_accessible_resources`.
 2) in [main.html](main.html) add `<div data-include="<your_extension_name>"></div>` in the `<div id="extensionsCon">...</div>` section.
@@ -34,4 +34,4 @@
 # Dev Notes
  - If you update the [manifest.json](manifest.json) you have to manually turn off/on the extension in the extensions page ([Extensions Reloader](https://chrome.google.com/webstore/detail/extensions-reloader/fimgfedafeadlieiabdeeaodndnlbhid?hl=en) won't work).
  - This repo uses ES6 so if you are traversing DOM elements in jquery use `.each((idx, element) => {})';` when looping through children elements.
- - For Chrome to regoznie new files you add you have to delete Messenger Assistant and reload the unpacked version of Messenger Assistant.
+ - Due to limitations with Chrome extensions, when you create a new file you must delete Messenger Assistant and reload the unpacked version of Messenger Assistant.
