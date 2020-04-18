@@ -141,7 +141,7 @@ let checkAddReminder = (key) => {
     addReminders(text, hour, day);
 };
 
-let initReminders = () => {
+let remindersInit = () => {
   console.log("Init Reminders")
   $("#remindTextInput").keydown(function (key) {
       checkAddReminder(key);

@@ -1,4 +1,3 @@
-const YOUR_NAME = "Curtis";
 const chatObserverConfig = { attributes: false, childList: true, subtree: true};
 
 let getConvo = () => {

@@ -10,7 +10,7 @@ let copyStringToClipboard = (str) => {
   document.body.removeChild(el);
 };
 
-let initEmojis = () => {
+let emojisInit= () => {
   console.log("Init Emojis")
   $(".pasteBtn").on("click", (e)=>{
     let text = $(e.target).html();

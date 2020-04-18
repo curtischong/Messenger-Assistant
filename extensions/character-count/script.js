@@ -90,7 +90,7 @@ let getCharCntChart = (ctx) => {
     chart.update();
   }
 
-  let initCharacterCount = () => {
+  let characterCountInit = () => {
     console.log("Init Character Count")
     let charCntChartCtx = document.getElementById('charCntChart').getContext('2d');
     return getCharCntChart(charCntChartCtx);
