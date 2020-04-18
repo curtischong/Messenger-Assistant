@@ -50,8 +50,7 @@ let observeChatChanges = (chatObserver, config, retries) => {
     console.log("Chat Observer attached")
   }
   catch(error) {
-    console.log("Cannot attach observer to detect new messages with error:")
-    console.error(error)
+    console.log('Cannot attach observer to detect new messages with err=%s, %d retries left', error, retries)
     setTimeout(observeChatChanges(chatObserver, config, retries - 1),1000)
   }
 }
@@ -105,7 +104,6 @@ let loadHtmlForEachExtension = () => {
     jQuery.each(includes, function(){
       var baseDir = "chrome-extension://kmghfconmpkjbigpjnahcfbjkgemaggf/"
       var htmlFile = baseDir + 'extensions/' + $(this).data('include') + '/index.html';
-      //var js = baseDir + 'extensions/' + $(this).data('include') + '/index.html';
       $(this).load(htmlFile);
     });
   });
@@ -115,14 +113,16 @@ $(document).ready( () => {
   $.get(chrome.extension.getURL('main.html'), (data) => {
     $(data).appendTo('body');
     loadHtmlForEachExtension();
-      let i = setInterval(() => {
-          if ($('._41ud').length) {
-            clearInterval(i);
-            // everything is now loaded
-            let initVars = initOnPageLoad();
-            initMessengerAssistant(initVars);
-            initOnChatLoad(initVars, getConvo());
-          }
-      }, 200);
+    // Wait 1 second for the HTML to load. Otherwise the js will fail.
+    // I tried $("#convoBody").ready() but it doesn't work. PRs appreciated!
+    let i = setInterval(() => {
+      if ($('._41ud').length) {
+        clearInterval(i);
+        // everything is now loaded
+        let initVars = initOnPageLoad();
+        initMessengerAssistant(initVars);
+        initOnChatLoad(initVars, getConvo());
+      }
+    }, 1000);
   });
 });
