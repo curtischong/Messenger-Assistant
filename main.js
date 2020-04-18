@@ -123,6 +123,6 @@ $(document).ready( () => {
             initMessengerAssistant(initVars);
             initOnChatLoad(initVars, getConvo());
           }
-      }, 100);
+      }, 200);
   });
 });

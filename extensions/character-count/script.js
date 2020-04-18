@@ -92,8 +92,6 @@ let getCharCntChart = (ctx) => {
     let charCntDatasets = getCharCntDatasets(peopleCharCnts);
     chart.data.labels = convoTimes;
     chart.data.datasets = charCntDatasets;
-    console.log(convoTimes);
-    console.log(charCntDatasets)
     chart.update();
   }
 

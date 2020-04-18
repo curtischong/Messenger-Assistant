@@ -24,7 +24,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background-color: #F0F8FF;
   top: 7%;
   right: 0px;
-  z-index: 100;
+  z-index: 1;
+}
+#extensionsCon{
+  z-index: 1;
 }
 
 #visibilityBtn {
@@ -36,7 +39,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  z-index: 105;
+  z-index: 2;
   border: 1px solid grey;
 }
 
