@@ -1,7 +1,8 @@
 const TIME_FORMAT = "h:mma"
 
 // TODO: add the axis titles for this chart
-let getCharCntChart = (ctx) => {
+let getCharCntChart = (chart) => {
+  let ctx = chart.getContext('2d')
   return new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
@@ -98,6 +99,11 @@ let getCharCntChart = (ctx) => {
   let characterCountInit = () => {
     console.log("Init Character Count")
     // TODO(Curtis): Known bug - this script runs before the chart canvas is created -> throws error here.
-    let charCntChartCtx = document.getElementById('charCntChart').getContext('2d');
-    return getCharCntChart(charCntChartCtx);
+    let charCntChart = document.getElementById('charCntChart')
+    if(charCntChart == null){
+      setTimeout(() => {
+        charCntChart = document.getElementById('charCntChart')
+      },1000)
+    }
+    return getCharCntChart(charCntChart);
   }
