@@ -11,7 +11,7 @@ let initOnPageLoad = () => {
 
   // This object will be passed into the function hooks below.
   const initVars = {
-    "characterCount": characterCountInitVars,
+    "characterCountChart": characterCountInitVars,
   }
   return initVars;
 }

@@ -87,7 +87,10 @@ let getCharCntChart = (chart) => {
   }
 
   let characterCountGenerateChart = (initVars, convo) => {
-    let chart = initVars.characterCount
+    let chart = initVars.characterCountChart
+    if (chart === null){
+      return
+    }
     let peopleCharCnts = getPeopleCharCnts(convo);
     let convoTimes = getConvoTimes(convo);
     let charCntDatasets = getCharCntDatasets(peopleCharCnts);
@@ -100,10 +103,15 @@ let getCharCntChart = (chart) => {
     console.log("Init Character Count")
     // TODO(Curtis): Known bug - this script runs before the chart canvas is created -> throws error here.
     let charCntChart = document.getElementById('charCntChart')
-    if(charCntChart == null){
+    let numRetries = 5
+    while(charCntChart == null && numRetries-- > 0) {
       setTimeout(() => {
         charCntChart = document.getElementById('charCntChart')
       },1000)
+    }
+    if (charCntChart === null){
+      console.log("Couldn't fetch the character count chart");
+      return null;
     }
     return getCharCntChart(charCntChart);
   }
