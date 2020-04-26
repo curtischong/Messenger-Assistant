@@ -100,12 +100,19 @@ let initPageObserver = (initVars, chatObserver) => {
 
 let loadHtmlForEachExtension = () => {
   $(function(){
+    EXTENSIONS_TO_LOAD.forEach((extensionName) => {
+      let newExtensionCon = $(`<div id="extension-${extensionName}"></div>`)
+      newExtensionCon.load(chrome.extension.getURL(`extensions/${extensionName}/index.html`));
+      newExtensionCon.appendTo("#extensionsCon")
+    })
+    /*
     var includes = $('[data-include]');
     jQuery.each(includes, function(){
+
       var baseDir = "chrome-extension://kmghfconmpkjbigpjnahcfbjkgemaggf/"
       var htmlFile = baseDir + 'extensions/' + $(this).data('include') + '/index.html';
       $(this).load(htmlFile);
-    });
+    });*/
   });
 }
 

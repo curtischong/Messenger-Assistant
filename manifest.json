@@ -7,8 +7,8 @@
       "https://www.messenger.com/*"
     ],
     "js": [ "dependencies/moment.min.js",
-            "dependencies/jquery-3.3.1.min.js",
             "dependencies/chartjs-2.8.0.js",
+            "dependencies/jquery-3.3.1.min.js",
             "settings.js",
             "dev-network.js",
             "parse.js",

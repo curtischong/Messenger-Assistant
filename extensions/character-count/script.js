@@ -4,26 +4,26 @@ const TIME_FORMAT = "h:mma"
 let getCharCntChart = (chart) => {
   let ctx = chart.getContext('2d')
   return new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-        // The data for our dataset
-        data: {
-          labels: [],
-          datasets: []
-        },
-        // Configuration options go here
-        options: {
-          scales: {
-            xAxes: [{
-              ticks: {
-                autoSkip: true,
-                maxRotation: 90,
-              }
-            }]
-          }
+      // The type of chart we want to create
+      type: 'line',
+      // The data for our dataset
+      data: {
+        labels: [],
+        datasets: []
+      },
+      // Configuration options go here
+      options: {
+        scales: {
+          xAxes: [{
+            ticks: {
+              autoSkip: true,
+              maxRotation: 90,
+            }
+          }]
         }
-    });
-  }
+      }
+  });
+};
 
   let getConvoTimes = (convo) => {
     let formattedTimes = [];

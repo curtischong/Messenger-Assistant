@@ -16,8 +16,9 @@
 # Installation
 1) Run `git clone git@github.com:curtischong/Messenger-Assistant.git` in your terminal.
 2) Change `const YOUR_NAME = "Curtis";` in [settings.js](settings.js) to your name. (Please capitalize your name).
-3) Load the unpacked extension into Chrome https://github.com/web-scrobbler/web-scrobbler/wiki/Install-an-unpacked-extension.
-4) go on messenger.com and the side panel should appear! (You may need to reload messenger.com).
+3) Choose which extensions you want by placing the name of the extension in the `EXTENSIONS_TO_LOAD` array in [settings.js](settings.js). All extensions are selected by default.
+4) Load the unpacked extension into Chrome https://github.com/web-scrobbler/web-scrobbler/wiki/Install-an-unpacked-extension.
+5) go on messenger.com and the side panel should appear! (You may need to reload messenger.com).
 
 # Design Decisions
 - Each Messenger-Assistant Extension should have an index, script, and syle.css under its directory name in the extensions directory.
