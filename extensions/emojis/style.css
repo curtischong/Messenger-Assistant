@@ -34,14 +34,14 @@
     border: solid 1px mediumseagreen;
 }
 
-.pasteBtn{
-  position: relative;
-  background-color: bisque;
-  margin: 2px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.1s;
-  border: solid 1px #e6a265;
+.pasteBtn {
+    position: relative;
+    background-color: bisque;
+    margin: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.1s;
+    border: solid 1px #e6a265;
 }
 
 .pasteBtn:hover {

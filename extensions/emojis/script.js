@@ -1,19 +1,19 @@
 let copyStringToClipboard = (str) => {
   // https://techoverflow.net/2018/03/30/copying-strings-to-the-clipboard-using-pure-javascript/
-  var el = document.createElement('textarea');
+  var el = document.createElement("textarea");
   el.value = str;
-  el.setAttribute('readonly', '');
-  el.style = {position: 'absolute', left: '-9999px'};
+  el.setAttribute("readonly", "");
+  el.style = { position: "absolute", left: "-9999px" };
   document.body.appendChild(el);
   el.select();
-  document.execCommand('copy');
+  document.execCommand("copy");
   document.body.removeChild(el);
 };
 
-let emojisInit= () => {
-  console.log("Init Emojis")
-  $(".pasteBtn").on("click", (e)=>{
+let emojisInit = () => {
+  console.log("Init Emojis");
+  $(".pasteBtn").on("click", (e) => {
     let text = $(e.target).html();
     copyStringToClipboard(text);
   });
-}
+};

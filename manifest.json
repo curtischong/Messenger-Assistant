@@ -2,28 +2,31 @@
   "manifest_version": 2,
   "name": "Messenger Assistant",
   "version": "0.1",
-  "content_scripts": [{
-    "matches": [
-      "https://www.messenger.com/*"
-    ],
-    "js": [ "dependencies/moment.min.js",
-            "dependencies/chartjs-2.8.0.js",
-            "dependencies/jquery-3.3.1.min.js",
-            "settings.js",
-            "dev-network.js",
-            "parse.js",
-            "main.js",
-            "extensions.js",
-            "extensions/character-count/script.js",
-            "extensions/reminders/script.js",
-            "extensions/emojis/script.js"],
-    "css": ["main.css",
-            "extensions/character-count/style.css",
-            "extensions/reminders/style.css",
-            "extensions/emojis/style.css"]
-  }],
-  "browser_action": {
-  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.messenger.com/*"],
+      "js": [
+        "dependencies/moment.min.js",
+        "dependencies/chartjs-2.8.0.js",
+        "dependencies/jquery-3.3.1.min.js",
+        "settings.js",
+        "dev-network.js",
+        "parse.js",
+        "main.js",
+        "extensions.js",
+        "extensions/character-count/script.js",
+        "extensions/reminders/script.js",
+        "extensions/emojis/script.js"
+      ],
+      "css": [
+        "main.css",
+        "extensions/character-count/style.css",
+        "extensions/reminders/style.css",
+        "extensions/emojis/style.css"
+      ]
+    }
+  ],
+  "browser_action": {},
   "background": {
     "scripts": ["network.js"]
   },
@@ -33,9 +36,6 @@
     "extensions/reminders/index.html",
     "extensions/emojis/index.html"
   ],
-  "permissions":[
-    "storage",
-    "http://localhost:5000/"
-  ],
-  "content_security_policy":  "default-src 'self' https://yourwebsite.com/"
+  "permissions": ["storage", "http://localhost:5000/"],
+  "content_security_policy": "default-src 'self' https://yourwebsite.com/"
 }

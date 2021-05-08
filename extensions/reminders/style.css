@@ -1,9 +1,8 @@
-
-.remindersText{
+.remindersText {
   display: inline-block;
 }
 
-#remindTextInput{
+#remindTextInput {
   width: 270px;
   display: inline-block;
   background-color: #f7d4fa;
@@ -12,14 +11,17 @@
   margin-left: 10px;
   padding: 2px;
 }
-#remindTextInput:focus{
+
+#remindTextInput:focus {
   outline: none;
   box-shadow: 0px 0px 1px #0066ff;
 }
-#remindTextInput:focus::placeholder{
+
+#remindTextInput:focus::placeholder {
   color: #4a4a4a;
 }
-#remindHourInput{
+
+#remindHourInput {
   width: 20px;
   display: inline-block;
   background-color: #f7d4fa;
@@ -27,11 +29,13 @@
   border-radius: 5px;
   padding: 2px;
 }
-#remindHourInput:focus{
+
+#remindHourInput:focus {
   outline: none;
   box-shadow: 0px 0px 1px #0066ff;
 }
-#remindDayInput{
+
+#remindDayInput {
   width: 20px;
   display: inline-block;
   background-color: #f7d4fa;
@@ -39,15 +43,17 @@
   border-radius: 5px;
   padding: 2px;
 }
-#remindDayInput:focus{
+
+#remindDayInput:focus {
   outline: none;
   box-shadow: 0px 0px 1px #0066ff;
 }
-#remindersTitle{
+
+#remindersTitle {
   margin: 10px;
 }
 
-.delReminderBtn{
+.delReminderBtn {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -58,13 +64,16 @@
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
 }
-.delReminderBtn:hover{
+
+.delReminderBtn:hover {
   color: #ff5340;
 }
-.delReminderBtn:focus{
+
+.delReminderBtn:focus {
   outline: none;
 }
-.reminderDiv{
+
+.reminderDiv {
   width: 90%;
   background-color: #f2e0ff;
   border: 1px solid #eaccff;
@@ -75,11 +84,13 @@
   padding-bottom: 5px;
   margin: 10px;
 }
-.reminderName{
+
+.reminderName {
   display: inline-block;
   margin: 0px;
 }
-.reminderDate{
+
+.reminderDate {
   display: inline-block;
   position: relative;
   margin: 0px;
